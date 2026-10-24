@@ -10,11 +10,7 @@
 
 首次启用时，请打开仓库 **Settings → Pages**，将 **Build and deployment → Source** 设置为 **GitHub Actions**。之后在 Actions 页面确认部署工作流成功。
 
-当前仓库名为 `aegis-ai` 时，预期站点地址为：
-
-https://xiaoxuan0820-ctrl.github.io/aegis-ai/
-
-如果仓库重命名为 `kisiv-ai`，预期地址会变为：
+当前仓库名为 `kisiv-ai`，预期站点地址为：
 
 https://xiaoxuan0820-ctrl.github.io/kisiv-ai/
 
