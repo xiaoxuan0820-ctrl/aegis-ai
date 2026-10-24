@@ -1,7 +1,16 @@
-# 当前授权状态
+# Aegis AI 授权政策 / License Policy / ライセンスポリシー
 
-截至当前版本，仓库**未附带通用开源许可证**。这意味着代码虽然公开可见，但并未因此授予他人通用的复制、修改、分发或商业使用权限；适用法律下的默认权利仍然适用。
+## 简体中文
+当前代码采用 [PolyForm Noncommercial License 1.0.0](LICENSE)。该许可证不是 OSI 批准的开源许可证，因此本项目应称为“源代码可见（source-available）”，而非标准开源项目。非商业用途以许可证英文原文为准；商业用途需另行取得书面授权。价格、SLA 和企业支持尚未公布。
 
-项目目标是公开协作并保留商业授权空间。后续需要在专业法律意见下明确：项目核心代码的商业授权方式、社区贡献的版权归属与贡献者授权（例如适用的 CLA）、第三方依赖各自的许可证义务，以及商标、品牌与安全责任边界。
+社区贡献者须在合并前通过明确、可记录的流程接受 [CLA.md](CLA.md)。贡献者保留版权，并按 CLA 授予项目维护者维护、修改、分发和商业再授权贡献的许可。第三方依赖仍受各自许可证约束。商业化前建议进行专业法律审核。
 
-在正式许可证与贡献者协议发布之前，请勿声称本项目采用 MIT、Apache-2.0 或其他开源许可证，也不要承诺贡献者的代码已自动转让给项目方。
+## English
+The code is licensed under [PolyForm Noncommercial License 1.0.0](LICENSE). This is not an OSI-approved open-source license, so describe the project as source-available rather than standard open source. Noncommercial use is governed by the full English license. Commercial use requires a separate written license. Pricing, SLA, and enterprise support are not yet published.
+
+Contributors must explicitly accept [CLA.md](CLA.md) through a clear, recorded process before merge. Contributors retain copyright and grant the maintainers rights to maintain, modify, distribute, and commercially relicense contributions under the CLA. Third-party components retain their own license terms. Seek qualified legal review before commercialization.
+
+## 日本語
+コードには [PolyForm Noncommercial License 1.0.0](LICENSE) が適用されます。これは OSI 承認のオープンソースライセンスではないため、本プロジェクトは標準的なオープンソースではなく「ソース公開型」と説明してください。非商用利用は英語のライセンス本文に従い、商用利用には別途書面による許諾が必要です。料金、SLA、法人サポートは未公開です。
+
+寄稿者はマージ前に、明確かつ記録可能な手続きで [CLA.md](CLA.md) に明示的に同意する必要があります。寄稿者は著作権を保持し、CLA に基づいて保守者に保守・改変・配布・商用再許諾の権利を付与します。第三者コンポーネントには各自のライセンスが適用されます。商用化前に専門家の確認を受けてください。
