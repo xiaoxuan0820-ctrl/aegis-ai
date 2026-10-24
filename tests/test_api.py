@@ -124,4 +124,9 @@ def test_api_key_guard_when_configured(monkeypatch):
             "/api/v1/events", headers={"X-API-Key": "test-secret-key"}
         )
         assert authorized.status_code == 200
+        bearer_authorized = client.get(
+            "/api/v1/events",
+            headers={"Authorization": "Bearer test-secret-key"},
+        )
+        assert bearer_authorized.status_code == 200
 
