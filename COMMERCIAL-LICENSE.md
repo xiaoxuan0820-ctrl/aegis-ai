@@ -1,4 +1,4 @@
-# Aegis AI 商业授权 / Commercial Licensing / 商用ライセンス
+# KISIV AI 商业授权 / Commercial Licensing / 商用ライセンス
 
 > 本页仅作说明，不是商业合同或法律意见。This page is informational, not a contract or legal advice. 本ページは説明用であり、契約書や法的助言ではありません。
 
