@@ -1,4 +1,4 @@
-# KRYVANT AI
+# KISIV AI
 
 [简体中文](#简体中文) · [English](#english) · [日本語](#日本語)
 
@@ -6,9 +6,9 @@
 > An auditable security-defense platform for individuals, AI agents, and servers.  
 > 個人・AI エージェント・サーバー向けの監査可能なセキュリティ防御基盤。
 
-KRYVANT AI is a source-available project exploring a practical idea: security should not be a collection of disconnected alerts. It should be a controlled, explainable workflow that helps people understand what happened, why it matters, what can safely be done next, and whether the action worked.
+KISIV AI is a source-available project exploring a practical idea: security should not be a collection of disconnected alerts. It should be a controlled, explainable workflow that helps people understand what happened, why it matters, what can safely be done next, and whether the action worked.
 
-KRYVANT AI 不只是一个“告警列表”或单点扫描工具。它希望逐步成为连接个人数字生活、AI Agent、网站与服务器的安全防御中枢：把分散的安全信号整理成可理解的风险，把建议变成经过授权、可撤销、可审计的操作，并用验证结果形成闭环。
+KISIV AI 不只是一个“告警列表”或单点扫描工具。它希望逐步成为连接个人数字生活、AI Agent、网站与服务器的安全防御中枢：把分散的安全信号整理成可理解的风险，把建议变成经过授权、可撤销、可审计的操作，并用验证结果形成闭环。
 
 > **Project status:** early MVP / active development. Product vision and planned capabilities below are not claims that every feature is already implemented.
 
@@ -18,13 +18,13 @@ KRYVANT AI 不只是一个“告警列表”或单点扫描工具。它希望逐
 
 ### 一句话介绍
 
-**KRYVANT AI是一个面向个人用户、AI Agent、网站与服务器的自主式安全防御平台。** 它以事件为入口，以风险研判为核心，以受控响应为边界，以审计和验证为闭环，目标是让安全从“出了问题才处理”逐步走向“持续感知、提前判断、谨慎行动、结果可查”。
+**KISIV AI是一个面向个人用户、AI Agent、网站与服务器的自主式安全防御平台。** 它以事件为入口，以风险研判为核心，以受控响应为边界，以审计和验证为闭环，目标是让安全从“出了问题才处理”逐步走向“持续感知、提前判断、谨慎行动、结果可查”。
 
-### 为什么需要KRYVANT AI？
+### 为什么需要KISIV AI？
 
 今天的数字安全问题往往分散在不同地方：设备有异常、账号有可疑登录、网站有攻击流量、服务器有配置风险，AI Agent 又可能持有文件、浏览器、终端或第三方服务的访问权限。传统工具通常各自提供告警，但个人用户和小团队仍然要自己拼接线索、判断优先级、执行处置，再确认问题是否真正解决。
 
-KRYVANT AI 的目标，是把这些环节连接起来。它不追求“让 AI 无限制地接管系统”，而是让自动化始终处在明确权限、可解释规则和可审计流程之内。
+KISIV AI 的目标，是把这些环节连接起来。它不追求“让 AI 无限制地接管系统”，而是让自动化始终处在明确权限、可解释规则和可审计流程之内。
 
 ### 核心特点与差异化方向
 
@@ -105,11 +105,11 @@ API 文档： http://127.0.0.1:8000/docs
 
 ## English
 
-### What is KRYVANT AI?
+### What is KISIV AI?
 
-**KRYVANT AI is an early-stage, auditable security-defense platform for individuals, AI agents, websites, and servers.** Its design goal is to connect event intake, risk triage, controlled response, outcome verification, and audit records into one understandable workflow.
+**KISIV AI is an early-stage, auditable security-defense platform for individuals, AI agents, websites, and servers.** Its design goal is to connect event intake, risk triage, controlled response, outcome verification, and audit records into one understandable workflow.
 
-Security signals are often fragmented across devices, accounts, web services, servers, and AI agents. KRYVANT AI aims to help users move beyond isolated alerts: understand what happened, why it matters, which actions are appropriate, and whether those actions actually reduced risk.
+Security signals are often fragmented across devices, accounts, web services, servers, and AI agents. KISIV AI aims to help users move beyond isolated alerts: understand what happened, why it matters, which actions are appropriate, and whether those actions actually reduced risk.
 
 ### Design differentiators
 
@@ -177,11 +177,11 @@ Contributors must explicitly agree to the CLA through a clear, recorded process 
 
 ## 日本語
 
-### KRYVANT AI とは
+### KISIV AI とは
 
-**KRYVANT AIは、個人ユーザー、AI エージェント、Web サイト、サーバーを対象とする、監査可能なセキュリティ防御基盤を目指す初期開発プロジェクトです。** イベント収集、リスク評価、制御された対応、結果の検証、監査記録を一つのワークフローにつなぐことを目標としています。
+**KISIV AIは、個人ユーザー、AI エージェント、Web サイト、サーバーを対象とする、監査可能なセキュリティ防御基盤を目指す初期開発プロジェクトです。** イベント収集、リスク評価、制御された対応、結果の検証、監査記録を一つのワークフローにつなぐことを目標としています。
 
-セキュリティ情報は端末、アカウント、Web サービス、サーバー、AI エージェントなどに分散しがちです。KRYVANT AI は、何が起きたのか、なぜ重要なのか、どの対応が適切なのか、対応によってリスクが下がったのかを理解しやすくすることを目指します。
+セキュリティ情報は端末、アカウント、Web サービス、サーバー、AI エージェントなどに分散しがちです。KISIV AI は、何が起きたのか、なぜ重要なのか、どの対応が適切なのか、対応によってリスクが下がったのかを理解しやすくすることを目指します。
 
 ### 主な設計上の特徴
 
