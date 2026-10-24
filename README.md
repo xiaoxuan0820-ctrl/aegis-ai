@@ -90,6 +90,12 @@ uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 API 文档： http://127.0.0.1:8000/docs  
 运行测试：`pytest`
 
+### 项目展示与演示
+
+- [KISIV AI 项目首页（HTML）](index.html)
+- [MVP 演示指南](docs/DEMO.md)
+- [GitHub 社交预览图（SVG）](docs/images/kisiv-social-preview.svg)
+
 ### 项目文档
 
 - [品牌规范与命名说明](BRAND.md)
