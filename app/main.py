@@ -1,4 +1,4 @@
-"""Aegis AI MVP: event triage with safe, dry-run-only response."""
+"""KISIV AI MVP: event triage with safe, dry-run-only response."""
 from __future__ import annotations
 import json, os, sqlite3
 from contextlib import closing
@@ -9,8 +9,9 @@ from uuid import uuid4
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, Field
 
-APP_NAME = "Aegis AI"
-DB_PATH = Path(os.getenv("AEGIS_DB_PATH", "./data/aegis.db"))
+APP_NAME = "KISIV AI"
+# Prefer the current name while preserving compatibility with existing deployments.
+DB_PATH = Path(os.getenv("KISIV_DB_PATH") or os.getenv("AEGIS_DB_PATH") or "./data/kisiv.db")
 def utc_now() -> str: return datetime.now(timezone.utc).isoformat()
 def connect_db() -> sqlite3.Connection:
     DB_PATH.parent.mkdir(parents=True, exist_ok=True)
