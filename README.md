@@ -93,6 +93,7 @@ API 文档： http://127.0.0.1:8000/docs
 ### 项目展示与演示
 
 - [KISIV AI 项目首页（HTML）](index.html)
+- [首页部署说明（GitHub Pages）](docs/DEPLOY.md)
 - [MVP 演示指南](docs/DEMO.md)
 - [GitHub 社交预览图（SVG）](docs/images/kisiv-social-preview.svg)
 
