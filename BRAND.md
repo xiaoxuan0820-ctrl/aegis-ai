@@ -1,8 +1,8 @@
-# KRYVANT AI — Brand Guide
+# KISIV AI — Brand Guide
 
 ## Brand definition
 
-**KRYVANT AI** is an early-stage, source-available project exploring an auditable security and control platform for AI agents, applications, websites, servers, and personal digital environments.
+**KISIV AI** is an early-stage, source-available project exploring an auditable security and control platform for AI agents, applications, websites, servers, and personal digital environments.
 
 - **Category:** AI Security & Control Platform
 - **Tagline:** Intelligence with boundaries. Security you can verify.
@@ -11,7 +11,7 @@
 
 ## Positioning
 
-KRYVANT AI is not positioned as an unrestricted autonomous operator or as a replacement for established security controls. Its direction is policy-bounded AI assistance, controlled response workflows, evidence-based verification, and traceable decisions.
+KISIV AI is not positioned as an unrestricted autonomous operator or as a replacement for established security controls. Its direction is policy-bounded AI assistance, controlled response workflows, evidence-based verification, and traceable decisions.
 
 ## Messaging pillars
 
@@ -37,10 +37,9 @@ KRYVANT AI is not positioned as an unrestricted autonomous operator or as a repl
 
 ## Naming and conflict-screening note
 
-KRYVANT AI is the working brand selected after an initial web search found substantial direct overlap for the previous candidate SENTRIX AI, including an established cybersecurity provider using Sentrix and software/AI-related trademark records. The search did not surface a clear exact-match KRYVANT AI cybersecurity brand, but it did surface a similar KRYVAN mark in a different product category.
+KISIV AI is the selected working brand for this project. A preliminary public-web search found the exact-match domain Kisiv.com listed for sale, which means the domain is not currently presented as freely available; acquisition would require a separate purchase and verification. The search also surfaced kis.ai, an established enterprise AI platform. Its name is not identical to KISIV, but its adjacent software/AI positioning is relevant when assessing potential confusion.
 
-This is **preliminary screening, not legal clearance**. Before commercial launch, domain purchase, or trademark filing, check exact and confusingly similar marks in each target market and relevant goods/services classes, using official trademark databases and qualified counsel. Domain and social-handle availability must also be checked separately.
-
+This is **preliminary screening, not legal clearance**. No conclusion is made here about trademark availability or legal rights. Before commercial launch, domain purchase, or trademark filing, check exact and confusingly similar marks in each target market and relevant goods/services classes, using official trademark databases and qualified counsel. Domain and social-handle availability must also be checked separately.
 ## Project status
 
-KRYVANT AI is an early-stage development prototype. This guide defines brand direction; it does not imply production readiness, certifications, or capabilities that are not implemented.
+KISIV AI is an early-stage development prototype. This guide defines brand direction; it does not imply production readiness, certifications, or capabilities that are not implemented.
