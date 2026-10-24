@@ -8,7 +8,7 @@ from typing import Any, Literal
 from uuid import uuid4
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 APP_NAME = "KISIV AI"
 # Prefer the current name while preserving compatibility with existing deployments.
@@ -48,6 +48,26 @@ class EventIn(BaseModel):
     description: str = Field(min_length=1, max_length=4000)
     asset: str | None = Field(default=None, max_length=500)
     metadata: dict[str, Any] = Field(default_factory=dict)
+
+    @field_validator("metadata")
+    @classmethod
+    def validate_metadata(cls, value: dict[str, Any]) -> dict[str, Any]:
+        encoded = json.dumps(value, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        if len(encoded) > 16_384:
+            raise ValueError("metadata must be 16 KiB or smaller")
+
+        def check_depth(item: Any, depth: int = 0) -> None:
+            if depth > 8:
+                raise ValueError("metadata nesting must not exceed 8 levels")
+            if isinstance(item, dict):
+                for child in item.values():
+                    check_depth(child, depth + 1)
+            elif isinstance(item, list):
+                for child in item:
+                    check_depth(child, depth + 1)
+
+        check_depth(value)
+        return value
 class ResponseRequest(BaseModel):
     event_id: str
     action: Literal["alert","isolate_asset","block_source","disable_account"] = "alert"
