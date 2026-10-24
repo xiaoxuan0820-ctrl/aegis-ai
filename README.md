@@ -87,6 +87,8 @@ python -m pip install -r requirements.txt
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
+如需启用 API Key 校验，请在启动前设置环境变量 `KISIV_API_KEY`（建议使用足够长的随机值）；所有 `/api/v1/*` 请求需通过 `X-API-Key` 或 `Authorization: Bearer <key>` 传入。未设置该变量时不会启用认证，因此只应在本机开发环境运行，不要直接暴露到公网。
+
 API 文档： http://127.0.0.1:8000/docs  
 运行测试：`pytest`
 
