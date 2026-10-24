@@ -86,6 +86,7 @@ API 文档： http://127.0.0.1:8000/docs
 
 ### 项目文档
 
+- [品牌规范与命名说明](BRAND.md)
 - [产品概览与差异化设计](PRODUCT_OVERVIEW.md)
 - [开发路线图](ROADMAP.md)
 - [贡献指南](CONTRIBUTING.md)
@@ -157,6 +158,7 @@ API docs: http://127.0.0.1:8000/docs · Tests: `pytest`
 
 ### Documentation
 
+- [Brand guide and naming note](BRAND.md)
 - [Product overview](PRODUCT_OVERVIEW.md)
 - [Roadmap](ROADMAP.md)
 - [Contribution guide](CONTRIBUTING.md)
@@ -220,6 +222,7 @@ API ドキュメント: http://127.0.0.1:8000/docs · テスト: `pytest`
 
 ### ドキュメント
 
+- [ブランドガイド](BRAND.md)
 - [製品概要](PRODUCT_OVERVIEW.md)
 - [開発ロードマップ](ROADMAP.md)
 - [貢献ガイド](CONTRIBUTING.md)
