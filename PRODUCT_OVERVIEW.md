@@ -2,7 +2,7 @@
 
 > **产品愿景：让安全从分散告警，走向可解释、可控制、可验证的防御闭环。**
 
-- 项目仓库：[xiaoxuan0820-ctrl/aegis-ai](https://github.com/xiaoxuan0820-ctrl/aegis-ai)
+- 项目仓库：[xiaoxuan0820-ctrl/aegis-ai](https://github.com/xiaoxuan0820-ctrl/kisiv-ai)
 - 项目阶段：早期 MVP / 持续开发
 - 产品定位：面向个人用户、AI Agent、网站与服务器的自主式安全防御平台
 - 当前技术基础：FastAPI + SQLite
