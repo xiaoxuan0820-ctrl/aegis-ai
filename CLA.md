@@ -1,4 +1,4 @@
-# Aegis AI Contributor License Agreement (Draft)
+# KISIV AI Contributor License Agreement (Draft)
 
 This is a draft for discussion and should be reviewed by a qualified lawyer before adoption.
 
