@@ -17,3 +17,41 @@ def test_event_assess_and_dry_run_response():
     assert response.status_code==200 and response.json()["dry_run"] is True and response.json()["status"]=="simulated"
 def test_unknown_event_returns_404():
     r=client.post("/api/v1/responses",json={"event_id":"missing-event","action":"alert"}); assert r.status_code==404
+
+
+def test_event_input_validation_and_size_limits():
+    too_long = client.post("/api/v1/events", json={
+        "source": "pytest",
+        "event_type": "validation",
+        "severity": "info",
+        "description": "x" * 4001,
+    })
+    assert too_long.status_code == 422
+
+    invalid_severity = client.post("/api/v1/events", json={
+        "source": "pytest",
+        "event_type": "validation",
+        "severity": "unknown",
+        "description": "safe test",
+    })
+    assert invalid_severity.status_code == 422
+
+
+def test_audit_contains_event_and_assessment():
+    created = client.post("/api/v1/events", json={
+        "source": "pytest",
+        "event_type": "benign_test",
+        "severity": "low",
+        "description": "synthetic event for audit test",
+    })
+    assert created.status_code == 201
+    event_id = created.json()["id"]
+
+    assessed = client.post(f"/api/v1/events/{event_id}/assess")
+    assert assessed.status_code == 200
+
+    audit = client.get("/api/v1/audit?limit=20")
+    assert audit.status_code == 200
+    actions = [item["action"] for item in audit.json()["items"] if item["event_id"] == event_id]
+    assert "event.created" in actions
+    assert "event.assessed" in actions
