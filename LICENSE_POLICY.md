@@ -1,4 +1,4 @@
-# Aegis AI 授权政策 / License Policy / ライセンスポリシー
+# KISIV AI 授权政策 / License Policy / ライセンスポリシー
 
 ## 简体中文
 当前代码采用 [PolyForm Noncommercial License 1.0.0](LICENSE)。该许可证不是 OSI 批准的开源许可证，因此本项目应称为“源代码可见（source-available）”，而非标准开源项目。非商业用途以许可证英文原文为准；商业用途需另行取得书面授权。价格、SLA 和企业支持尚未公布。
