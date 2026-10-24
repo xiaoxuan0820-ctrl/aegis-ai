@@ -1,12 +1,13 @@
 """KISIV AI MVP: event triage with safe, dry-run-only response."""
 from __future__ import annotations
-import json, os, sqlite3
+import hmac, json, os, sqlite3
 from contextlib import closing
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Literal
 from uuid import uuid4
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 
 APP_NAME = "KISIV AI"
@@ -20,6 +21,24 @@ def init_db() -> None:
     with closing(connect_db()) as conn:
         conn.executescript("""CREATE TABLE IF NOT EXISTS events (id TEXT PRIMARY KEY, source TEXT NOT NULL, event_type TEXT NOT NULL, severity TEXT NOT NULL, description TEXT NOT NULL, asset TEXT, metadata_json TEXT NOT NULL, created_at TEXT NOT NULL); CREATE TABLE IF NOT EXISTS audit_log (id TEXT PRIMARY KEY, event_id TEXT, action TEXT NOT NULL, outcome TEXT NOT NULL, details_json TEXT NOT NULL, created_at TEXT NOT NULL);"""); conn.commit()
 app = FastAPI(title=APP_NAME, description="Defensive security event triage with safe, dry-run-only response.", version="0.1.0")
+
+@app.middleware("http")
+async def api_key_guard(request: Request, call_next):
+    """Enforce an API key when configured; keep health checks public."""
+    expected_key = os.getenv("KISIV_API_KEY", "").strip()
+    if expected_key and request.url.path.startswith("/api/v1/"):
+        supplied_key = request.headers.get("x-api-key", "")
+        authorization = request.headers.get("authorization", "")
+        if not supplied_key and authorization.lower().startswith("bearer "):
+            supplied_key = authorization[7:].strip()
+        if not supplied_key or not hmac.compare_digest(supplied_key, expected_key):
+            return JSONResponse(
+                status_code=401,
+                content={"detail": "Missing or invalid API key"},
+                headers={"WWW-Authenticate": "Bearer"},
+            )
+    return await call_next(request)
+
 @app.on_event("startup")
 def startup() -> None: init_db()
 class EventIn(BaseModel):
