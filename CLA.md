@@ -6,7 +6,7 @@ By explicitly accepting this agreement before your contribution is merged, you c
 
 1. You created the contribution or have permission to submit it.
 2. You retain ownership of your copyright.
-3. You grant the project maintainers a worldwide, perpetual, non-exclusive, royalty-free license to use, reproduce, modify, distribute, display, and sublicense your contribution as part of Aegis AI or derivative products, including under commercial or proprietary terms.
+3. You grant the project maintainers a worldwide, perpetual, non-exclusive, royalty-free license to use, reproduce, modify, distribute, display, and sublicense your contribution as part of KISIV AI or derivative products, including under commercial or proprietary terms.
 4. To the extent you control relevant patent rights necessarily implicated by your contribution, you grant the project and its recipients a non-exclusive, royalty-free license to use and distribute the contribution.
 5. You will identify material third-party code and its license, and will not knowingly submit material that violates another party's rights.
 6. Your contribution is provided without warranty unless applicable law requires otherwise.
