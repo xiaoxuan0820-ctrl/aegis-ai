@@ -6,9 +6,11 @@
 
 工作流文件：`.github/workflows/deploy-pages.yml`
 
+工作流只发布 `index.html` 和 `docs/images/*.svg` 等必需静态资源，不把整个仓库目录作为 Pages 产物。
+
 向 `main` 分支推送首页或文档变更后，会自动触发部署；也可以在 GitHub 仓库的 **Actions** 页面手动运行 **Deploy KISIV AI homepage to GitHub Pages**。
 
-首次启用时，请打开仓库 **Settings → Pages**，将 **Build and deployment → Source** 设置为 **GitHub Actions**。之后在 Actions 页面确认部署工作流成功。
+首次启用时，请打开仓库 **Settings → Pages**，将 **Build and deployment → Source** 设置为 **GitHub Actions**。当前工作流不会尝试自动创建 Pages 站点，因为 GitHub Actions 连接可能没有创建站点的权限。保存设置后，在 Actions 页面重新运行部署工作流，并确认运行成功。
 
 当前仓库名为 `kisiv-ai`，预期站点地址为：
 
