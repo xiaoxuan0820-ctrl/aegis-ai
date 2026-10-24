@@ -67,6 +67,27 @@ def test_event_input_validation_and_size_limits():
         })
         assert invalid_severity.status_code == 422
 
+        oversized_metadata = client.post("/api/v1/events", json={
+            "source": "pytest",
+            "event_type": "metadata_limit",
+            "severity": "low",
+            "description": "metadata size test",
+            "metadata": {"payload": "x" * 17000},
+        })
+        assert oversized_metadata.status_code == 422
+
+        deeply_nested = {"leaf": True}
+        for _ in range(10):
+            deeply_nested = {"nested": deeply_nested}
+        nested_metadata = client.post("/api/v1/events", json={
+            "source": "pytest",
+            "event_type": "metadata_depth",
+            "severity": "low",
+            "description": "metadata nesting test",
+            "metadata": deeply_nested,
+        })
+        assert nested_metadata.status_code == 422
+
 
 def test_audit_contains_event_and_assessment():
     with TestClient(app) as client:
