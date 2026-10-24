@@ -1,6 +1,6 @@
 """KISIV AI MVP: event triage with safe, dry-run-only response."""
 from __future__ import annotations
-import hmac, json, os, sqlite3
+import hmac, json, logging, os, sqlite3
 from contextlib import closing
 from datetime import datetime, timezone
 from pathlib import Path
@@ -11,6 +11,7 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field, field_validator
 
 APP_NAME = "KISIV AI"
+logger = logging.getLogger("kisiv.security")
 # Prefer the current name while preserving compatibility with existing deployments.
 DB_PATH = Path(os.getenv("KISIV_DB_PATH") or os.getenv("AEGIS_DB_PATH") or "./data/kisiv.db")
 def utc_now() -> str: return datetime.now(timezone.utc).isoformat()
@@ -40,7 +41,10 @@ async def api_key_guard(request: Request, call_next):
     return await call_next(request)
 
 @app.on_event("startup")
-def startup() -> None: init_db()
+def startup() -> None:
+    init_db()
+    if not os.getenv("KISIV_API_KEY", "").strip():
+        logger.warning("KISIV_API_KEY is not configured; API routes are unauthenticated. Keep this service bound to localhost.")
 class EventIn(BaseModel):
     source: str = Field(min_length=1, max_length=100)
     event_type: str = Field(min_length=1, max_length=100)
