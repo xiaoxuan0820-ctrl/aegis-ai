@@ -1,17 +1,16 @@
-# 贡献指南
+# 贡献指南 / Contributing / コントリビューション
 
-感谢你对 Aegis AI 的兴趣。项目仍在早期阶段，欢迎通过 Issue 讨论架构、检测规则、测试、文档和可复现的缺陷。
+## 简体中文
+欢迎通过 Issue 和 Pull Request 参与。请为新功能提供测试与文档，运行 `pytest`，并在 PR 中说明结果。保持防御性用途；响应动作默认 dry-run。不要提交凭据、个人数据、生产日志或你无权分享的代码，也不要把模型输出直接变成任意 shell 命令。
 
-## 开发约定
-1. 优先提交小而清晰的改动，并说明威胁模型和安全边界。
-2. 新功能应包含测试、错误处理与必要文档。
-3. 任何响应动作默认 dry-run；不得加入未经授权的真实攻击、破坏性动作或隐蔽持久化功能。
-4. 不要提交真实凭据、个人数据、生产日志或可识别目标的信息。
-5. 不要让模型生成的文本直接转化为 shell 命令或高权限工具调用。
-6. 提交前运行 `pytest`，并在 PR 中说明测试结果。
+**合并前，贡献者必须通过明确、可记录的流程同意 [CLA.md](CLA.md)。** 该文件目前是待法律审核的草案；在建立清晰的同意记录流程前，不应把 PR 提交本身视为已同意。
 
-## 商业授权与贡献
+## English
+Issues and pull requests are welcome. Include tests and documentation, run `pytest`, and report the results. Keep the project defensive and response actions dry-run by default. Do not submit credentials, personal data, production logs, code you are not authorized to share, or logic that turns model output into arbitrary shell commands.
 
-本仓库目前没有授予通用开源许可证。公开可见不等于获得复制、修改、分发或商业使用许可。
+**Before merge, contributors must explicitly accept [CLA.md](CLA.md) through a clear, recorded process.** The CLA is currently a draft pending legal review. A PR alone must not be treated as acceptance until an explicit assent process is in place.
 
-项目方计划研究商业授权模式。在贡献者协议（CLA）与授权条款明确之前，请先通过 Issue 讨论方案；未经双方明确书面约定，不应假定贡献者已将其版权转让给项目方，也不应假定项目方可以任意对贡献进行商业再授权。
+## 日本語
+Issue と Pull Request を歓迎します。新機能にはテストとドキュメントを追加し、`pytest` を実行して結果を報告してください。防御目的を維持し、対応処理はデフォルトで dry-run としてください。認証情報、個人データ、本番ログ、共有権限のないコード、またはモデル出力を任意のシェルコマンドに変換する機能を投稿しないでください。
+
+**マージ前に、文書化され記録される手続きで [CLA.md](CLA.md) に明示的に同意する必要があります。** CLA は現在、法的レビュー待ちの草案です。明示的な同意手続きが整うまでは、PR の提出だけで同意したと見なさないでください。
