@@ -1,31 +1,25 @@
 # Aegis AI（神盾 AI）
 
-**面向个人用户、AI Agent 与服务器的可审计安全防御平台。**
+[简体中文](#简体中文) · [English](#english) · [日本語](#日本語)
 
-Aegis AI 希望把安全事件收集、风险研判、受控响应和审计报告整合到一个清晰、可扩展的工作流中。项目处于早期 MVP 阶段，欢迎安全研究者、开发者和产品贡献者参与讨论。
+> An auditable security-defense platform for individuals, AI agents, and servers.  
+> 面向个人用户、AI Agent 与服务器的可审计安全防御平台。
 
-> 当前版本是开发原型，不是可直接用于生产环境的安全产品。风险评分仅用于演示，不代表专业安全结论。
+## 简体中文
 
-## 设计目标
+Aegis AI 是一个正在开发中的安全防御项目，目标是把安全事件收集、风险研判、受控响应与审计记录整合到统一工作流中。项目面向个人设备、AI Agent、网站和服务器等场景，优先采用本地处理、透明规则与可审计操作。
 
-- **一个事件视图：** 统一记录来自主机、服务、网络和 AI Agent 的安全事件。
-- **可解释研判：** 输出风险等级、触发规则、建议动作和理由。
-- **默认安全：** 响应器默认使用 dry-run，不执行真实封禁、删除或系统命令。
-- **全程可审计：** 记录事件、研判和响应尝试，便于复盘。
-- **个人优先：** 未来支持本地优先处理，减少敏感数据外传。
-- **工具协作而非重复造轮子：** 逐步集成成熟的日志、网络检测和终端安全工具。
+### 当前状态
+- FastAPI + SQLite 的早期 MVP
+- 安全事件录入与查询
+- 基于规则的初步风险研判
+- 默认 dry-run 的模拟响应
+- 审计记录与基础测试
 
-## 当前 MVP
+当前是开发原型，尚未达到生产环境安全要求。它不会自动封禁真实 IP、修改防火墙或执行系统命令。
 
-- FastAPI REST API
-- SQLite 事件与审计记录
-- 基于规则的初步风险评估
-- dry-run 防御响应
-- 基础 API 测试
-
-## 快速开始
-
-需要 Python 3.11 或更新版本。
+### 快速开始
+需要 Python 3.11+：
 
 ```bash
 python -m venv .venv
@@ -34,58 +28,91 @@ python -m pip install -r requirements.txt
 uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-打开 API 文档： http://127.0.0.1:8000/docs
+API 文档： http://127.0.0.1:8000/docs  
+运行测试：`pytest`
 
-默认仅监听本机回环地址。**不要未经身份认证、授权与网络加固，就把服务暴露到公网。**
+### 授权与商业使用
+当前代码采用 **PolyForm Noncommercial License 1.0.0**。该许可证允许符合条款的非商业使用、修改和分发；商业用途需要另行取得书面商业授权。请阅读 [LICENSE](LICENSE) 与 [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md)。
 
-运行测试：
+社区贡献者在 PR 合并前需要同意 [CLA.md](CLA.md)，以便项目能在保留贡献者版权的前提下，依法维护、分发并为项目提供商业授权。不要提交你无权授权的代码。
 
-```bash
-pytest
-```
+## English
 
-环境变量：
-- `AEGIS_DB_PATH`：SQLite 文件路径，默认 `./data/aegis.db`。
-- `AEGIS_DRY_RUN`：当前版本只模拟响应；真实系统操作尚未实现，无法通过环境变量启用。
+Aegis AI is an early-stage security-defense project that aims to bring security-event intake, risk triage, controlled response, and audit records into one workflow. It is intended for personal devices, AI agents, websites, and servers, with an emphasis on local-first processing, transparent rules, and auditable actions.
 
-## API 示例
+### Current status
+- Early MVP built with FastAPI and SQLite
+- Security-event intake and listing
+- Starter rule-based risk triage
+- Simulated response actions (dry-run by default)
+- Audit records and basic tests
 
-创建事件：
+This is a development prototype, not production-ready security software. It does not automatically block real IPs, change firewall rules, or execute system commands.
 
-```bash
-curl -X POST http://127.0.0.1:8000/api/v1/events \
-  -H 'Content-Type: application/json' \
-  -d '{"source":"demo","event_type":"repeated_login_failure","severity":"high","description":"多次登录失败，疑似暴力破解","asset":"my-test-host","metadata":{}}'
-```
-
-然后把返回的事件 `id` 用于研判：
+### Quick start
+Python 3.11+ is required:
 
 ```bash
-curl -X POST http://127.0.0.1:8000/api/v1/events/EVENT_ID/assess
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
 ```
 
-## 安全边界
+API docs: http://127.0.0.1:8000/docs  
+Run tests: `pytest`
 
-- 不执行模型输出中的任意 shell 命令。
-- 不把日志、事件描述或外部网页内容当作可信指令。
-- 不自动封禁真实 IP，不修改防火墙，不删除文件。
-- 生产部署前必须补齐身份认证、授权、速率限制、秘密管理、加密传输、备份与安全测试。
+### Licensing and commercial use
+The current code is licensed under the **PolyForm Noncommercial License 1.0.0**. Qualifying noncommercial use, modification, and distribution are permitted under its terms. Commercial use requires a separate written commercial license. See [LICENSE](LICENSE) and [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md).
 
-## 路线图
+Contributors must agree to [CLA.md](CLA.md) before their pull requests are merged. The CLA is intended to let the project maintain and distribute contributions and offer commercial licensing while contributors retain copyright. Do not submit code you are not authorized to contribute.
 
-1. [x] 事件 API、规则研判、dry-run 响应、审计日志
-2. [ ] 事件来源适配器与标准化 schema
-3. [ ] 规则配置、去重与事件关联
-4. [ ] 本地 Web 控制台
-5. [ ] AI 研判适配器（结构化输出、超时、数据脱敏与提示注入防护）
-6. [ ] Wazuh / Suricata 等工具集成
-7. [ ] 权限模型、身份认证与生产部署安全基线
-8. [ ] 经人工审批的可回滚响应插件
+## 日本語
 
-## 参与贡献
+Aegis AI は、セキュリティイベントの収集、リスク評価、制御された対応、監査記録を一つのワークフローに統合することを目指す初期開発段階のプロジェクトです。個人端末、AI エージェント、Web サイト、サーバーを対象とし、ローカル優先の処理、透明性のあるルール、監査可能な操作を重視します。
 
-请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md) 与 [SECURITY.md](SECURITY.md)。当前仓库尚未授予通用开源许可证，商业使用和外部分发权限尚未开放；请勿把“公开可见”理解为“可任意复制、修改或商用”。项目方会在确定商业授权与贡献者协议后更新相关条款。
+### 現在の状態
+- FastAPI と SQLite による初期 MVP
+- セキュリティイベントの登録と一覧表示
+- ルールベースの初期リスク評価
+- dry-run による対応シミュレーション
+- 監査記録と基本テスト
 
-## 免责声明
+本ソフトウェアは開発用プロトタイプであり、本番環境向けの安全性は保証されていません。実際の IP ブロック、ファイアウォール変更、システムコマンドの実行は行いません。
 
-本项目仅用于合法授权环境中的防御性安全监测与研究。使用者需确保拥有相关系统和数据的授权。软件按“现状”提供，不保证适用于特定用途。
+### セットアップ
+Python 3.11 以降が必要です。
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
+
+API ドキュメント: http://127.0.0.1:8000/docs  
+テスト: `pytest`
+
+### ライセンスと商用利用
+現在のコードは **PolyForm Noncommercial License 1.0.0** に基づいて提供されます。ライセンス条件を満たす非商用利用、改変、再配布が認められます。商用利用には別途、書面による商用ライセンスが必要です。[LICENSE](LICENSE) と [COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md) を参照してください。
+
+プルリクエストのマージ前に [CLA.md](CLA.md) への同意が必要です。寄稿者は著作権を保持しつつ、プロジェクトが寄稿を保守・配布し、商用ライセンスを提供できるようにすることを目的としています。権利を有しないコードは投稿しないでください。
+
+## Project principles / 项目原则 / プロジェクト方針
+
+- Defensive security only; test only systems you are authorized to assess.
+- Default to dry-run; no model-generated arbitrary shell commands.
+- Keep security decisions explainable and auditable.
+- Never upload secrets or production logs to public issues.
+- 本项目仅用于有授权的防御性安全用途。
+- 許可された環境での防御的なセキュリティ用途に限定してください。
+
+## Links
+- [Contribution guide](CONTRIBUTING.md)
+- [Security reporting](SECURITY.md)
+- [Commercial licensing overview](COMMERCIAL-LICENSE.md)
+- [Contributor License Agreement](CLA.md)
+- [License policy](LICENSE_POLICY.md)
+
+## Disclaimer
+This project is provided “as is” for defensive research and development. It is not a substitute for professional security controls and must not be deployed in production without independent security review.
