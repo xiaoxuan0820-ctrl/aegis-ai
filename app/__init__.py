@@ -1,1 +1,1 @@
-"""Aegis AI application package."""
+"""KISIV AI application package."""
