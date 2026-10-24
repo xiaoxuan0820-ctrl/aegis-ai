@@ -90,3 +90,17 @@ def test_audit_contains_event_and_assessment():
         ]
         assert "event.created" in actions
         assert "event.assessed" in actions
+
+def test_api_key_guard_when_configured(monkeypatch):
+    monkeypatch.setenv("KISIV_API_KEY", "test-secret-key")
+    with TestClient(app) as client:
+        assert client.get("/health").status_code == 200
+        assert client.get("/api/v1/events").status_code == 401
+        assert client.get(
+            "/api/v1/events", headers={"X-API-Key": "wrong-key"}
+        ).status_code == 401
+        authorized = client.get(
+            "/api/v1/events", headers={"X-API-Key": "test-secret-key"}
+        )
+        assert authorized.status_code == 200
+
